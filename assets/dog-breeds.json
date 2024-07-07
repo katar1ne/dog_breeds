@@ -1,0 +1,43 @@
+[
+    {
+      "path": "assets/images/image1.png",
+      "title": "Título da Imagem 1",
+      "description": "Descrição da imagem 1"
+    },
+    {
+      "path": "assets/images/image1.png",
+      "title": "Título da Imagem 2",
+      "description": "Descrição da imagem 2"
+    },
+    {
+      "path": "assets/images/image2.webp",
+      "title": "Título da Imagem 3",
+      "description": "Descrição da imagem 3"
+    },
+    {
+      "path": "assets/images/image3.jpg",
+      "title": "Título da Imagem 4",
+      "description": "Descrição da imagem 4"
+    },
+    {
+      "path": "assets/images/image4.avif",
+      "title": "Título da Imagem 5",
+      "description": "Descrição da imagem 5"
+    },
+    {
+      "path": "assets/images/image5.jpg",
+      "title": "Título da Imagem 6",
+      "description": "Descrição da imagem 6"
+    },
+    {
+      "path": "assets/images/image5.jpg",
+      "title": "Título da Imagem 7",
+      "description": "Descrição da imagem 7"
+    },
+    {
+        "path": "assets/images/image2.webp",
+        "title": "Título da Imagem 8",
+        "description": "Descrição da imagem 8"
+    }
+  ]
+  
