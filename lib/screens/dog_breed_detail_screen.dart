@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ImageDetailScreen extends StatelessWidget {
+class DogBreedDetailScreen extends StatelessWidget {
   final String imagePath;
   final String title;
   final String description;
 
-  ImageDetailScreen(
+  DogBreedDetailScreen(
       {required this.imagePath,
       required this.title,
       required this.description});
@@ -14,7 +14,7 @@ class ImageDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Image Detail'),
+        title: Text('Dog Breed Detail'),
       ),
       body: Column(
         children: [
