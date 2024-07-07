@@ -10,13 +10,70 @@ class DogBreedListScreen extends StatefulWidget {
 }
 
 class _DogBreedListScreenState extends State<DogBreedListScreen> {
-  late Future<List<DogBreed>> futureDogBreeds;
   final DogBreedService dogBreedService = DogBreedService();
+  final ScrollController _scrollController = ScrollController();
+
+  List<DogBreed> _dogBreeds = [];
+  bool _isLoading = false;
+  bool _hasMore = true;
+  int _currentPage = 0;
+  final int _initialItemsPerPage = 6;
+  final int _subsequentItemsPerPage = 2;
 
   @override
   void initState() {
     super.initState();
-    futureDogBreeds = dogBreedService.fetchDogBreeds();
+    _loadInitialDogBreeds();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels ==
+            _scrollController.position.maxScrollExtent &&
+        !_isLoading &&
+        _hasMore) {
+      _fetchMoreDogBreeds();
+    }
+  }
+
+  void _loadInitialDogBreeds() {
+    _dogBreeds = [];
+    _currentPage = 0;
+    _hasMore = true;
+    _fetchMoreDogBreeds();
+  }
+
+  Future<void> _fetchMoreDogBreeds() async {
+    if (_isLoading) return;
+    setState(() {
+      _isLoading = true;
+    });
+
+    await Future.delayed(
+        Duration(seconds: 5)); // Adiciona um atraso de 5 segundos
+
+    final isInitialLoad = _currentPage == 0;
+    final newDogBreeds = await dogBreedService.fetchDogBreeds(
+      startIndex: _currentPage *
+          (isInitialLoad ? _initialItemsPerPage : _subsequentItemsPerPage),
+      limit: isInitialLoad ? _initialItemsPerPage : _subsequentItemsPerPage,
+    );
+
+    setState(() {
+      _dogBreeds.addAll(newDogBreeds);
+      _currentPage++;
+      _isLoading = false;
+      if (newDogBreeds.length <
+          (isInitialLoad ? _initialItemsPerPage : _subsequentItemsPerPage)) {
+        _hasMore = false;
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -25,61 +82,73 @@ class _DogBreedListScreenState extends State<DogBreedListScreen> {
       appBar: AppBar(
         title: Text('Dog Breeds'),
       ),
-      body: FutureBuilder<List<DogBreed>>(
-        future: futureDogBreeds,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          } else {
-            final dogBreeds = snapshot.data!;
-            return GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // Número de colunas
-                crossAxisSpacing:
-                    4.0, // Espaçamento horizontal entre as colunas
-                mainAxisSpacing: 4.0, // Espaçamento vertical entre as linhas
-              ),
-              itemCount: dogBreeds.length,
-              itemBuilder: (context, index) {
-                final dogBreed = dogBreeds[index];
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DogBreedDetailScreen(
-                          imagePath: dogBreed.path,
-                          title: dogBreed.title,
-                          description: dogBreed.description,
-                        ),
-                      ),
-                    );
-                  },
-                  child: Card(
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: Image.asset(
-                            dogBreed.path,
-                            fit: BoxFit
-                                .cover, // Ajusta a imagem para cobrir o espaço disponível
+      body: _dogBreeds.isEmpty && _isLoading
+          ? Center(child: CircularProgressIndicator())
+          : Column(
+              children: [
+                Expanded(
+                  child: GridView.builder(
+                    controller: _scrollController,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2, // Número de colunas
+                      crossAxisSpacing:
+                          4.0, // Espaçamento horizontal entre as colunas
+                      mainAxisSpacing:
+                          4.0, // Espaçamento vertical entre as linhas
+                    ),
+                    itemCount: _dogBreeds.length + (_hasMore ? 1 : 0),
+                    itemBuilder: (context, index) {
+                      if (index == _dogBreeds.length) {
+                        // Mostra o indicador de carregamento no final da lista
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                      final dogBreed = _dogBreeds[index];
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DogBreedDetailScreen(
+                                imagePath: dogBreed.path,
+                                title: dogBreed.title,
+                                description: dogBreed.description,
+                              ),
+                            ),
+                          ).then((_) {
+                            // Resetar a lista de dog breeds ao voltar da tela de detalhes
+                            _loadInitialDogBreeds();
+                          });
+                        },
+                        child: Card(
+                          child: Column(
+                            children: [
+                              Expanded(
+                                child: Image.asset(
+                                  dogBreed.path,
+                                  fit: BoxFit
+                                      .cover, // Ajusta a imagem para cobrir o espaço disponível
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(dogBreed.title),
+                              ),
+                            ],
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(dogBreed.title),
-                        ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
-                );
-              },
-            );
-          }
-        },
-      ),
+                ),
+                if (_isLoading && _dogBreeds.isNotEmpty)
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(child: CircularProgressIndicator()),
+                  ),
+              ],
+            ),
     );
   }
 }
