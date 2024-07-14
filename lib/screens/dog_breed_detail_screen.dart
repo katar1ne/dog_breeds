@@ -20,6 +20,7 @@ class DogBreedDetailScreen extends StatefulWidget {
 
 class _DogBreedDetailScreenState extends State<DogBreedDetailScreen> {
   int _currentIndex = 0;
+  bool _isLiked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -51,10 +52,29 @@ class _DogBreedDetailScreenState extends State<DogBreedDetailScreen> {
               items: allImages.map((imagePath) {
                 return Builder(
                   builder: (BuildContext context) {
-                    return Image.asset(
-                      imagePath,
-                      fit: BoxFit.cover,
-                      width: MediaQuery.of(context).size.width,
+                    return Stack(
+                      children: [
+                        Image.asset(
+                          imagePath,
+                          fit: BoxFit.cover,
+                          width: MediaQuery.of(context).size.width,
+                        ),
+                        Positioned(
+                          bottom: 8.0,
+                          left: 8.0,
+                          child: IconButton(
+                            icon: Icon(
+                              _isLiked ? Icons.favorite : Icons.favorite_border,
+                              color: _isLiked ? Colors.red : Colors.red,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _isLiked = !_isLiked;
+                              });
+                            },
+                          ),
+                        ),
+                      ],
                     );
                   },
                 );
