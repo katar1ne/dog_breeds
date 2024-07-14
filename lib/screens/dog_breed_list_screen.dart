@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import '../models/dog_breed.dart';
@@ -17,7 +19,7 @@ class _DogBreedListScreenState extends State<DogBreedListScreen> {
   bool _isLoading = false;
   bool _hasMore = true;
   int _currentPage = 0;
-  final int _initialItemsPerPage = 8;
+  final int _initialItemsPerPage = 7;
   final int _subsequentItemsPerPage = 2;
 
   @override
@@ -138,7 +140,13 @@ class _DogBreedListScreenState extends State<DogBreedListScreen> {
               ),
             ],
           ),
-          if (_isLoading) Center(child: CircularProgressIndicator()),
+          if (_isLoading)
+            Positioned.fill(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                child: Center(child: CircularProgressIndicator()),
+              ),
+            ),
         ],
       ),
     );
