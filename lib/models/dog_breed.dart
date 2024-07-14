@@ -1,16 +1,24 @@
 class DogBreed {
-  final String path;
   final String title;
   final String description;
+  final String path;
+  final List<String> additionalImages;
 
-  DogBreed(
-      {required this.path, required this.title, required this.description});
+  DogBreed({
+    required this.title,
+    required this.description,
+    required this.path,
+    required this.additionalImages,
+  });
 
   factory DogBreed.fromJson(Map<String, dynamic> json) {
     return DogBreed(
-      path: json['path'],
       title: json['title'],
       description: json['description'],
+      path: json['path'],
+      additionalImages: json['additional_images'] != null
+          ? List<String>.from(json['additional_images'])
+          : [],
     );
   }
 }

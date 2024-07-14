@@ -107,9 +107,10 @@ class _DogBreedListScreenState extends State<DogBreedListScreen> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => DogBreedDetailScreen(
-                              imagePath: dogBreed.path,
                               title: dogBreed.title,
                               description: dogBreed.description,
+                              imagePath: dogBreed.path,
+                              additionalImages: dogBreed.additionalImages,
                             ),
                           ),
                         ).then((_) {

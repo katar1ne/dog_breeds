@@ -1,28 +1,42 @@
 [
     {
       "path": "assets/images/image1.png",
-      "title": "Título da Imagem 1",
-      "description": "Descrição da imagem 1"
+      "title": "Título de cachorrinhos",
+      "description": "Descrição: cachorrinho fofinho",
+      "additional_images": [
+           "assets/images/image2.webp",
+           "assets/images/image1.png",
+           "assets/images/image3.jpg"
+      ]
     },
+    
     {
       "path": "assets/images/image1.png",
       "title": "Título da Imagem 2",
-      "description": "Descrição da imagem 2"
+      "description": "Descrição da imagem 2",
+      "additional_images": [
+      ]
     },
     {
       "path": "assets/images/image2.webp",
       "title": "Título da Imagem 3",
-      "description": "Descrição da imagem 3"
+      "description": "Descrição da imagem 3",
+      "additional_images": [
+      ]
     },
     {
       "path": "assets/images/image3.jpg",
       "title": "Título da Imagem 4",
-      "description": "Descrição da imagem 4"
+      "description": "Descrição da imagem 4",
+      "additional_images": [
+      ]
     },
     {
       "path": "assets/images/image4.avif",
       "title": "Título da Imagem 5",
-      "description": "Descrição da imagem 5"
+      "description": "Descrição da imagem 5",
+      "additional_images": [
+      ]
     },
     {
       "path": "assets/images/image5.jpg",
