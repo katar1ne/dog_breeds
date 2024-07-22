@@ -1,9 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../models/dog_breed.dart';
 import '../services/dog_breed_service.dart';
+import '../services/google_auth_service.dart'; // Importa o GoogleAuthService
 import 'dog_breed_detail_screen.dart';
 
 class DogBreedListScreen extends StatefulWidget {
@@ -21,12 +23,16 @@ class _DogBreedListScreenState extends State<DogBreedListScreen> {
   int _currentPage = 0;
   final int _initialItemsPerPage = 7;
   final int _subsequentItemsPerPage = 2;
+  bool _isLoggedIn = false; // Variável de estado para controle de login/logout
+  GoogleSignInAccount? _currentUser; // Armazena o usuário logado
 
   @override
   void initState() {
     super.initState();
     _loadInitialDogBreeds();
     _scrollController.addListener(_onScroll);
+    _currentUser = GoogleAuthService.currentUser;
+    _isLoggedIn = _currentUser != null;
   }
 
   void _onScroll() {
@@ -72,6 +78,31 @@ class _DogBreedListScreenState extends State<DogBreedListScreen> {
     });
   }
 
+  Future<void> _toggleLoginState() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    if (_isLoggedIn) {
+      await GoogleAuthService.signOutGoogle();
+    } else {
+      _currentUser = await GoogleAuthService.signInWithGoogle();
+    }
+
+    setState(() {
+      _isLoggedIn = GoogleAuthService.currentUser != null;
+      _isLoading = false;
+    });
+
+    // Exibir mensagem de estado de login
+    final loginStateMessage = _isLoggedIn
+        ? 'Usuário logado com sucesso'
+        : 'Usuário deslogado com sucesso';
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(loginStateMessage)),
+    );
+  }
+
   @override
   void dispose() {
     _scrollController.dispose();
@@ -83,6 +114,12 @@ class _DogBreedListScreenState extends State<DogBreedListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Dog Breeds'),
+        actions: [
+          IconButton(
+            icon: Icon(_isLoggedIn ? Icons.logout : Icons.login),
+            onPressed: _toggleLoginState,
+          ),
+        ],
       ),
       body: Stack(
         children: [
