@@ -1,5 +1,6 @@
+import 'package:dog_breeds/services/google_auth_service.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart'; // Atualize o caminho conforme necessário
 
 class LikeButton extends StatefulWidget {
   final String imagePath;
@@ -13,6 +14,7 @@ class LikeButton extends StatefulWidget {
 class _LikeButtonState extends State<LikeButton> {
   bool _isLiked = false;
   late String _likeKey;
+  bool _isLoggedIn = GoogleAuthService.isUserLoggedIn;
 
   @override
   void initState() {
@@ -35,6 +37,10 @@ class _LikeButtonState extends State<LikeButton> {
 
   @override
   Widget build(BuildContext context) {
+    if (!_isLoggedIn) {
+      return Container(); // Ou exiba um widget alternativo
+    }
+
     return IconButton(
       icon: Icon(
         _isLiked ? Icons.favorite : Icons.favorite_border,

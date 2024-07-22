@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
-
-import '../widgets/like_button.dart';
+import 'package:dog_breeds/services/google_auth_service.dart';
+import 'package:dog_breeds/widgets/like_button.dart';
+import 'package:flutter/material.dart'; // Atualize o caminho conforme necessário
 
 class DogBreedDetailScreen extends StatefulWidget {
   final String title;
@@ -22,6 +22,19 @@ class DogBreedDetailScreen extends StatefulWidget {
 
 class _DogBreedDetailScreenState extends State<DogBreedDetailScreen> {
   int _currentIndex = 0;
+  bool _isLoggedIn = GoogleAuthService.isUserLoggedIn;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkLoginStatus();
+  }
+
+  void _checkLoginStatus() {
+    setState(() {
+      _isLoggedIn = GoogleAuthService.isUserLoggedIn;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,11 +83,12 @@ class _DogBreedDetailScreenState extends State<DogBreedDetailScreen> {
                   fit: BoxFit.cover,
                   width: MediaQuery.of(context).size.width,
                 ),
-                Positioned(
-                  bottom: 8.0,
-                  left: 8.0,
-                  child: LikeButton(imagePath: imagePath),
-                ),
+                if (_isLoggedIn)
+                  Positioned(
+                    bottom: 8.0,
+                    left: 8.0,
+                    child: LikeButton(imagePath: imagePath),
+                  ),
               ],
             );
           },

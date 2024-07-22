@@ -17,4 +17,6 @@ class GoogleAuthService {
   }
 
   static GoogleSignInAccount? get currentUser => _googleSignIn.currentUser;
+
+  static bool get isUserLoggedIn => _googleSignIn.currentUser != null;
 }
