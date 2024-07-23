@@ -1,112 +1,124 @@
 [
-    {
-      "path": "assets/images/image1.png",
-      "title": "Título de cachorrinhos",
-      "description": "Descrição: cachorrinho fofinho",
-      "additional_images": [
-           "assets/images/image2.webp",
-           "assets/images/image1.png",
-           "assets/images/image3.jpg"
-      ]
-    },
-    
-    {
-      "path": "assets/images/image1.png",
-      "title": "Título da Imagem 2",
-      "description": "Descrição da imagem 2",
-      "additional_images": [
-      ]
-    },
-    {
-      "path": "assets/images/image2.webp",
-      "title": "Título da Imagem 3",
-      "description": "Descrição da imagem 3",
-      "additional_images": [
-      ]
-    },
-    {
-      "path": "assets/images/image3.jpg",
-      "title": "Título da Imagem 4",
+   {
+      "path": "assets/images/basset.jpg",
+      "title": "Basset Hound",
       "description": "Descrição da imagem 4",
       "additional_images": [
       ]
     },
     {
-      "path": "assets/images/image4.avif",
-      "title": "Título da Imagem 5",
+      "path": "assets/images/beagle.png",
+      "title": "Beagle",
+      "description": "Descrição da imagem 4",
+      "additional_images": [
+      ]
+    },
+    {
+      "path": "assets/images/border-collie.jpg",
+      "title": "Border Collie",
+      "description": "Descrição da imagem 4",
+      "additional_images": [
+      ]
+    },
+    {
+      "path": "assets/images/bull-terrier.png",
+      "title": "Bull terrier",
+      "description": "Descrição da imagem 4",
+      "additional_images": [
+      ]
+    },
+    {
+      "path": "assets/images/bulldog-frances.jpg",
+      "title": "Bulldog Frânces",
+      "description": "Descrição da imagem 4",
+      "additional_images": [
+      ]
+    },
+    {
+      "path": "assets/images/cachorro-caramelo.jpg",
+      "title": "Cachorro Caramelo",
+      "description": "Descrição da imagem 4",
+      "additional_images": [
+      ]
+    },
+    {
+      "path": "assets/images/chihuahua.jpg",
+      "title": "Chihuahua",
+      "description": "Descrição da imagem 4",
+      "additional_images": [
+      ]
+    },
+    {
+      "path": "assets/images/cocker-spaniel.jpg",
+      "title": "Cocker Spaniel",
+      "description": "Descrição da imagem 4",
+      "additional_images": [
+      ]
+    },
+    {
+      "path": "assets/images/dachshund.jpg",
+      "title": "Dachshund",
+      "description": "Descrição da imagem 4",
+      "additional_images": [
+      ]
+    },
+    {
+      "path": "assets/images/golden-retriever.jpg",
+      "title": "Golden Retriever",
+      "description": "Descrição da imagem 4",
+      "additional_images": [
+      ]
+    },
+    {
+      "path": "assets/images/labrador.jpg",
+      "title": "Labrador",
+      "description": "Descrição da imagem 4",
+      "additional_images": [
+      ]
+    },
+    {
+      "path": "assets/images/pastor-alemao.png",
+      "title": "Pastor alemão",
+      "description": "Descrição da imagem 2",
+      "additional_images": [
+      ]
+    },
+    {
+      "path": "assets/images/pastor-australiano.jpg",
+      "title": "Pastor australiano",
+      "description": "Descrição da imagem 3",
+      "additional_images": [
+      ]
+    },
+    {
+      "path": "assets/images/poodle-gigante.jpg",
+      "title": "Poodle",
+      "description": "Descrição: cachorrinho fofinho",
+      "additional_images": [
+           "assets/images/poodle-medio.jpg",
+           "assets/images/poodle-toy.png"
+      ]
+    },
+    {
+      "path": "assets/images/pug.jpg",
+      "title": "Pug",
+      "description": "Descrição da imagem 4",
+      "additional_images": [
+      ]
+    },
+    {
+      "path": "assets/images/rottweiler.jpg",
+      "title": "Rottweiler",
       "description": "Descrição da imagem 5",
       "additional_images": [
       ]
     },
     {
-      "path": "assets/images/image5.jpg",
-      "title": "Título da Imagem 6",
-      "description": "Descrição da imagem 6"
-    },
-    {
-      "path": "assets/images/image5.jpg",
-      "title": "Título da Imagem 7",
-      "description": "Descrição da imagem 7"
-    },
-    {
-        "path": "assets/images/image2.webp",
-        "title": "Título da Imagem 8",
-        "description": "Descrição da imagem 8"
-    },
-    {
-        "path": "assets/images/image2.webp",
-        "title": "Título da Imagem 8",
-        "description": "Descrição da imagem 8"
-    },
-    {
-        "path": "assets/images/image2.webp",
-        "title": "Título da Imagem 8",
-        "description": "Descrição da imagem 8"
-    },
-    {
-        "path": "assets/images/image2.webp",
-        "title": "Título da Imagem 8",
-        "description": "Descrição da imagem 8"
-    },
-    {
-        "path": "assets/images/image2.webp",
-        "title": "Título da Imagem 8",
-        "description": "Descrição da imagem 8"
-    },
-    {
-      "path": "assets/images/image5.jpg",
-      "title": "Título da Imagem 6",
-      "description": "Descrição da imagem 6"
-    },
-    {
-      "path": "assets/images/image5.jpg",
-      "title": "Título da Imagem 6",
-      "description": "Descrição da imagem 6"
-    },
-    {
-      "path": "assets/images/image5.jpg",
-      "title": "Título da Imagem 6",
-      "description": "Descrição da imagem 6"
-    },
-    {
-      "path": "assets/images/image5.jpg",
-      "title": "Título da Imagem 6",
-      "description": "Descrição da imagem 6"
-    },
-    {
-      "path": "assets/images/image5.jpg",
-      "title": "Título da Imagem 6",
-      "description": "Descrição da imagem 6"
-    },
-    {
-      "path": "assets/images/image5.jpg",
-      "title": "Título da Imagem 6",
-      "description": "Descrição da imagem 6"
-    },
-    {
-      "path": "assets/images/image5.jpg",
-      "title": "Título da Imagem 6",
-      "description": "Descrição da imagem 6"
+      "path": "assets/images/yorkshire.jpg",
+      "title": "Yorshire",
+      "description": "Descrição da imagem 6",
+      "additional_images": [
+      ]
     }
   ]
   
