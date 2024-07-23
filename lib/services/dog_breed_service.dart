@@ -6,13 +6,15 @@ import '../models/dog_breed.dart';
 
 class DogBreedService {
   Future<List<DogBreed>> fetchDogBreeds(
-      {int startIndex = 0, int limit = 8}) async {
-    final response = await rootBundle.loadString('assets/dog-breeds.json');
+      {required int startIndex, required int limit}) async {
+    // Simulando a busca de um arquivo JSON local
+    final String response =
+        await rootBundle.loadString('assets/dog_breeds.json');
     final List<dynamic> data = json.decode(response);
-    return data
-        .skip(startIndex)
-        .take(limit)
-        .map((json) => DogBreed.fromJson(json))
-        .toList();
+    final List<DogBreed> allBreeds =
+        data.map((json) => DogBreed.fromJson(json)).toList();
+
+    // Retornando uma sublista com base no índice de início e no limite
+    return allBreeds.skip(startIndex).take(limit).toList();
   }
 }

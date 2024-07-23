@@ -26,7 +26,7 @@ flutter:
 
   uses-material-design: true
   assets:
-    - assets/dog-breeds.json
+    - assets/dog_breeds.json
     - assets/images/basset.jpg
     - assets/images/beagle.png
     - assets/images/border-collie.jpg
