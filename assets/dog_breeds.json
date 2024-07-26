@@ -3,98 +3,112 @@
     "id": 1,
     "path": "assets/images/basset.jpg",
     "title": "Basset Hound",
-    "description": "Descrição da imagem 4",
+    "likes": 5,
+    "description": "O Basset Hound é uma raça canina oriunda da França, pertencente ao grupo Hound/Sabujos. Foi desenvolvida por monges durante a idade média, com o intuito de auxiliar a caça terrestre. Seu faro é muito potente, perdendo apenas para o do Bloodhound.",
     "additional_images": []
   },
   {
     "id": 2,
     "path": "assets/images/beagle.png",
     "title": "Beagle",
-    "description": "Descrição da imagem 4",
+    "likes": 5,
+    "description": "Beagle ou bigle é uma raça de cães de caça de pequeno a médio porte originária do Reino Unido.",
     "additional_images": []
   },
   {
     "id": 3,
     "path": "assets/images/border-collie.jpg",
     "title": "Border Collie",
-    "description": "Descrição da imagem 4",
+    "likes": 5,
+    "description": "Border collie é uma raça canina do tipo collie desenvolvida na região da fronteira anglo-escocesa na Grã-Bretanha para o trabalho de pastorear gado ovino. Popular em seu país de origem, é considerada a raça de cães mais inteligente, de acordo com o livro de Stanley Coren, A Inteligência dos Cães de 1995.",
     "additional_images": []
   },
   {
     "id": 4,
     "path": "assets/images/bull-terrier.png",
     "title": "Bull terrier",
-    "description": "Descrição da imagem 4",
+    "likes": 5,
+    "description": "Bull terrier inglês é uma raça de cães do tipo terrier com origem no Reino Unido, idealizada por James Hinks a partir de cruzamentos entre o antigo buldogue e english white terrier por volta de 1860.",
     "additional_images": []
   },
   {
     "id": 5,
     "path": "assets/images/bulldog-frances.jpg",
     "title": "Bulldog Francês",
-    "description": "Descrição da imagem 4",
+    "likes": 5,
+    "description": "O buldogue francês é uma raça de cão de companhia, do tipo buldogue, de pequeno porte, oriunda da França.",
     "additional_images": []
   },
   {
     "id": 6,
     "path": "assets/images/cachorro-caramelo.jpg",
     "title": "Cachorro Caramelo",
-    "description": "Descrição da imagem 4",
+    "likes": 5,
+    "description": "O vira-lata caramelo é um cachorro sem raça definida (SRD) e com pelagem predominantemente marrom ou dourada. No Brasil, infelizmente ele é encontrado com frequência abandonado nas ruas e em abrigos de animais.",
     "additional_images": []
   },
   {
     "id": 7,
     "path": "assets/images/chihuahua.jpg",
     "title": "Chihuahua",
-    "description": "Descrição da imagem 4",
+    "likes": 5,
+    "description": "Chiuaua ou chihuahua é uma raça de cães de pequeno porte originária do México. É uma das menores raças do mundo, ganha em medidas com o Pequeno cão russo. Se divide na variedade de pelo longo e de pelo curto.",
     "additional_images": []
   },
   {
     "id": 8,
     "path": "assets/images/cocker-spaniel.jpg",
     "title": "Cocker Spaniel",
-    "description": "Descrição da imagem 4",
+    "likes": 5,
+    "description": "O cocker spaniel inglês é uma raça de cães britânica de porte médio, do tipo spaniel, utilizada originalmente para caça.",
     "additional_images": []
   },
   {
     "id": 9,
     "path": "assets/images/dachshund.jpg",
     "title": "Dachshund",
-    "description": "Descrição da imagem 4",
+    "likes": 5,
+    "description": "Dachshund ou teckel, também apelidado de cão-salsicha, é uma raça de cães oriunda da Alemanha. Esta raça está inserida em grupo próprio da FCI devido a sua grande variedade de tamanho e pelagem: standard, miniatura e kaninchen, e de pelo: longo, liso e duro.",
     "additional_images": []
   },
   {
     "id": 10,
     "path": "assets/images/golden-retriever.jpg",
     "title": "Golden Retriever",
-    "description": "Descrição da imagem 4",
+    "likes": 5,
+    "description": "O golden retriever é uma raça canina do tipo retriever originária da Grã-bretanha, e foi desenvolvida para a caça de aves aquáticas.",
     "additional_images": []
   },
   {
     "id": 11,
     "path": "assets/images/labrador.jpg",
     "title": "Labrador",
-    "description": "Descrição da imagem 4",
+    "likes": 5,
+    "description": "Labrador retriever é uma raça de cães do tipo retriever originária da província de Terra Nova e Labrador no Canadá, mas desenvolvida na Inglaterra. Utilizada originalmente para a caça de aves aquáticas, a labrador retriever é conhecida como uma raça versátil, inteligente e dócil.",
     "additional_images": []
   },
   {
     "id": 12,
     "path": "assets/images/pastor-alemao.png",
     "title": "Pastor Alemão",
-    "description": "Descrição da imagem 2",
+    "likes": 5,
+    "description": "Pastor-alemão ou lobo-da-alsácia é uma raça canina proveniente da Alemanha. Em sua origem era utilizado como cão de pastoreio de rebanhos. Atualmente é mais utilizado como cão de guarda e cão policial.",
     "additional_images": []
   },
   {
     "id": 13,
     "path": "assets/images/pastor-australiano.jpg",
     "title": "Pastor Australiano",
-    "description": "Descrição da imagem 3",
+    "likes": 5,
+    "description": "Pastor-australiano, conhecido simplesmente como 'Aussie', é uma raça canina oriunda dos Estados Unidos. Levada à nação australiana, onde foi criada pelos pastores de rebanhos, foi desenvolvida e reconhecida enquanto raça primeiramente na América.",
     "additional_images": []
   },
   {
     "id": 14,
     "path": "assets/images/poodle-gigante.jpg",
     "title": "Poodle",
-    "description": "Descrição: cachorrinho fofinho",
+    "likes": 5,
+    "description": "Poodle foi uma raça criada para trabalhar na água, tendo uma de suas tosas sido elaborada para diminuir o atrito e proteger contra o frio em suas áreas mais delicadas, como as pernas e o tórax. Por tempos, os franceses reivindicaram a criação da raça. Todavia, referências e estudos mais recentes mostram que sua origem é verdadeiramente de fato alemã, embora tenha sido influenciada por outras raças, como o barbet, de origem francesa.",
     "additional_images": [
       "assets/images/poodle-medio.jpg",
       "assets/images/poodle-toy.png"
@@ -104,21 +118,24 @@
     "id": 15,
     "path": "assets/images/pug.jpg",
     "title": "Pug",
-    "description": "Descrição da imagem 4",
+    "likes": 5,
+    "description": "Pug é uma raça de cão de companhia de pequeno porte, com focinho achatado e cauda enrolada. São cães braquicefálicos, ou seja, têm o focinho 'achatado'. Cães com essa características tem o sistema respiratório superior comprimido e portanto não toleram muito exercício físico.",
     "additional_images": []
   },
   {
     "id": 16,
     "path": "assets/images/rottweiler.jpg",
     "title": "Rottweiler",
-    "description": "Descrição da imagem 5",
+    "likes": 5,
+    "description": "Rottweiler é uma raça de cães molossos desenvolvida na Alemanha. Criada por açougueiros da região de Rottweil para o trabalho com o gado, logo tornou-se um eficiente cão de guarda e boiadeiro, e cão de tração. Devido à sua utilidade, tornou-se popular em todo o mundo ao decorrer do século XX",
     "additional_images": []
   },
   {
     "id": 17,
     "path": "assets/images/yorkshire.jpg",
     "title": "Yorkshire",
-    "description": "Descrição da imagem 6",
+    "likes": 5,
+    "description": "Yorkshire terrier, também chamada york e yorkie, é uma raça canina de pequeno porte do grupo dos terriers, originária do condado de Yorkshire na Inglaterra.",
     "additional_images": []
   }
 ]
