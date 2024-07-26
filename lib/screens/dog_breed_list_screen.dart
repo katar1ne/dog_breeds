@@ -198,6 +198,7 @@ class _DogBreedListScreenState extends State<DogBreedListScreen> {
           title: dogBreed.title,
           description: dogBreed.description,
           imagePath: dogBreed.path,
+          likes: dogBreed.likes,
           additionalImages: dogBreed.additionalImages,
         ),
       ),
