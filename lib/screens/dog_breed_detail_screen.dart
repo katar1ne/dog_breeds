@@ -1,19 +1,21 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dog_breeds/services/google_auth_service.dart';
+import 'package:dog_breeds/widgets/comment_section.dart';
 import 'package:dog_breeds/widgets/like_button.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class DogBreedDetailScreen extends StatefulWidget {
   final String title;
   final String description;
   final String imagePath;
+  final int likes;
   final List<String> additionalImages;
 
   DogBreedDetailScreen({
     required this.title,
     required this.description,
     required this.imagePath,
+    required this.likes,
     required this.additionalImages,
   });
 
@@ -24,80 +26,8 @@ class DogBreedDetailScreen extends StatefulWidget {
 class _DogBreedDetailScreenState extends State<DogBreedDetailScreen> {
   int _currentIndex = 0;
   bool _isLoggedIn = GoogleAuthService.isUserLoggedIn;
-  List<String> _comments = [];
-  late String _commentsKey;
-
-  @override
-  void initState() {
-    super.initState();
-    _commentsKey = 'comments_${widget.imagePath}';
-    _loadComments();
-    _checkLoginStatus();
-  }
-
-  void _checkLoginStatus() {
-    setState(() {
-      _isLoggedIn = GoogleAuthService.isUserLoggedIn;
-    });
-  }
-
-  void _loadComments() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _comments = prefs.getStringList(_commentsKey) ?? [];
-    });
-  }
-
-  void _saveComments() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setStringList(_commentsKey, _comments);
-  }
-
-  void _addComment() async {
-    if (!_isLoggedIn) {
-      // Mostra um alerta se o usuário não estiver logado
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Você precisa estar logado para comentar.')),
-      );
-      return;
-    }
-
-    final commentController = TextEditingController();
-    final result = await showDialog<String>(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text('Adicionar Comentário'),
-          content: TextField(
-            controller: commentController,
-            decoration: InputDecoration(hintText: 'Digite seu comentário'),
-            maxLines: 3,
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(commentController.text);
-              },
-              child: Text('Adicionar'),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Cancelar'),
-            ),
-          ],
-        );
-      },
-    );
-
-    if (result != null && result.isNotEmpty) {
-      setState(() {
-        _comments.add(result);
-        _saveComments();
-      });
-    }
-  }
+  final GlobalKey<CommentsSectionState> _commentsKey =
+      GlobalKey<CommentsSectionState>();
 
   @override
   Widget build(BuildContext context) {
@@ -106,13 +36,6 @@ class _DogBreedDetailScreenState extends State<DogBreedDetailScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        actions: [
-          if (_isLoggedIn)
-            IconButton(
-              icon: Icon(Icons.comment),
-              onPressed: _addComment,
-            ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -121,7 +44,7 @@ class _DogBreedDetailScreenState extends State<DogBreedDetailScreen> {
             _buildCarouselSlider(allImages),
             _buildIndicator(allImages.length),
             _buildDescription(widget.description),
-            if (_comments.isNotEmpty) _buildCommentsSection(),
+            CommentsSection(imagePath: widget.imagePath, key: _commentsKey),
           ],
         ),
       ),
@@ -158,7 +81,8 @@ class _DogBreedDetailScreenState extends State<DogBreedDetailScreen> {
                   Positioned(
                     bottom: 8.0,
                     left: 8.0,
-                    child: LikeButton(imagePath: imagePath),
+                    child: LikeButton(
+                        imagePath: imagePath, initialLikes: widget.likes),
                   ),
               ],
             );
@@ -197,23 +121,7 @@ class _DogBreedDetailScreenState extends State<DogBreedDetailScreen> {
     );
   }
 
-  Widget _buildCommentsSection() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Comentários',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 10),
-          ..._comments.map((comment) => ListTile(
-                leading: Icon(Icons.person),
-                title: Text(comment),
-              )),
-        ],
-      ),
-    );
+  void _addComment() {
+    _commentsKey.currentState?.showAddCommentDialog();
   }
 }
