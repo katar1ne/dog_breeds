@@ -10,7 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  shared_preferences: ^2.0.10
   cupertino_icons: ^1.0.6
+  google_sign_in: ^6.2.1
 
 dev_dependencies:
   flutter_test:
@@ -24,10 +26,24 @@ flutter:
 
   uses-material-design: true
   assets:
-    - assets/dog-breeds.json
-    - assets/images/image1.png
-    - assets/images/image2.webp
-    - assets/images/image3.jpg
-    - assets/images/image4.avif
-    - assets/images/image5.jpg
+    - assets/dog_breeds.json
+    - assets/images/basset.jpg
+    - assets/images/beagle.png
+    - assets/images/border-collie.jpg
+    - assets/images/bull-terrier.png
+    - assets/images/bulldog-frances.jpg
+    - assets/images/cachorro-caramelo.jpg
+    - assets/images/chihuahua.jpg
+    - assets/images/cocker-spaniel.jpg
+    - assets/images/dachshund.jpg
+    - assets/images/golden-retriever.jpg
+    - assets/images/labrador.jpg
+    - assets/images/pastor-alemao.png
+    - assets/images/pastor-australiano.jpg
+    - assets/images/poodle-gigante.jpg
+    - assets/images/poodle-medio.jpg
+    - assets/images/poodle-toy.png
+    - assets/images/pug.jpg
+    - assets/images/rottweiler.jpg
+    - assets/images/yorkshire.jpg
 
