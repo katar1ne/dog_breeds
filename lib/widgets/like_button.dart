@@ -1,6 +1,6 @@
 import 'package:dog_breeds/services/google_auth_service.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart'; // Atualize o caminho conforme necessário
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LikeButton extends StatefulWidget {
   final String imagePath;
