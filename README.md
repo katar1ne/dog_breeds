@@ -10,6 +10,7 @@ Sumário
 - Estrutura do Projeto
 
 #Visão Geral
+
 Este aplicativo foi desenvolvido para demonstrar o uso de Flutter para criar uma interface de usuário responsiva e interativa, integrando funcionalidades como autenticação com Google, persistência de dados locais e exibição de listas com paginação.
 
 Funcionalidades:
@@ -25,18 +26,22 @@ Pré-requisitos:
 - Dart
 
 #Passos para Instalação
-1.Clone o repositório:
+
+1. Clone o repositório:
 - git clone https://github.com/seu-usuario/dog-breeds.git
 - cd dog-breeds
   
-2.Instale as dependências:
+2. Instale as dependências:
 - flutter pub get
   
 3. Configure a conexão com o google
   - falta documentar...
-4.Execute o app
+    
+4. Execute o app
 - flutter run
+  
 #Uso
+
 Após iniciar o aplicativo, você verá a tela de lista de raças de cães. Você pode rolar a tela para carregar mais raças, tocar em uma raça para ver os detalhes, curtir e comentar nas imagens. Use o ícone de login no topo para autenticar com sua conta do Google.
 
 #Estrutura do Projeto
