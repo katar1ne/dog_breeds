@@ -28,8 +28,10 @@ Pré-requisitos:
 1.Clone o repositório:
 - git clone https://github.com/seu-usuario/dog-breeds.git
 - cd dog-breeds
+  
 2.Instale as dependências:
 - flutter pub get
+  
 3. Configure a conexão com o google
   - falta documentar...
 4.Execute o app
